@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload new File</title>
+</head>
+<body>
+    <form method="post" enctype="multipart/form-data">
+        <div>
+            <label for="global_tiff_path">Global raster TIFF file path:</label>
+            <input id="global_tiff_path" type="text" name="global_tiff_path">
+            <!-- You can provide a default value or leave it empty -->
+        </div>
+        <br/>
+        <div>
+            <label for="shp_admin_path">Shapefile with administrative boundaries file path:</label>
+            <input id="shp_admin_path" type="text" name="shp_admin_path">
+            <!-- You can provide a default value or leave it empty -->
+        </div>
+        <br/>
+        <div>
+            <label for="higher_res_path">Higher-resolution Population_Data TIFF file path (optional):</label>
+            <input id="higher_res_path" type="text" name="higher_res_path">
+            <!-- You can provide a default value or leave it empty -->
+        </div>
+        <br/>
+        <div>
+            <input type="radio" id="yes" name="analysisChoice" value="yes">
+            <label for="yes">Perform Landslide Population Analysis</label><br>
+            <input type="radio" id="no" name="analysisChoice" value="no">
+            <label for="no">Skip Landslide Population Analysis</label><br>
+        </div>
+        <br/>
+        <input type="submit" value="Process">
+    </form>
+</body>
+</html>
