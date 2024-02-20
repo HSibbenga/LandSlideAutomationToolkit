@@ -6,7 +6,10 @@ __pycache__/
 # C extensions
 *.so
 
-data/
+data
+global_tiff_files
+higher_res_files
+shape_files
 
 # Distribution / packaging
 .Python
