@@ -3,36 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upload new File</title>
+    <title>Landslide Automation Toolkit</title>
+    <link rel="stylesheet" href="../static/css/main.css">
 </head>
 <body>
-    <form method="post" enctype="multipart/form-data">
-        <div>
-            <label for="global_tiff_path">Global raster TIFF file path:</label>
-            <input id="global_tiff_path" type="text" name="global_tiff_path">
-            <!-- You can provide a default value or leave it empty -->
-        </div>
-        <br/>
-        <div>
-            <label for="shp_admin_path">Shapefile with administrative boundaries file path:</label>
-            <input id="shp_admin_path" type="text" name="shp_admin_path">
-            <!-- You can provide a default value or leave it empty -->
-        </div>
-        <br/>
-        <div>
-            <label for="higher_res_path">Higher-resolution Population_Data TIFF file path (optional):</label>
-            <input id="higher_res_path" type="text" name="higher_res_path">
-            <!-- You can provide a default value or leave it empty -->
-        </div>
-        <br/>
-        <div>
-            <input type="radio" id="yes" name="analysisChoice" value="yes">
-            <label for="yes">Perform Landslide Population Analysis</label><br>
-            <input type="radio" id="no" name="analysisChoice" value="no">
-            <label for="no">Skip Landslide Population Analysis</label><br>
-        </div>
-        <br/>
-        <input type="submit" value="Process">
-    </form>
+    <div class="top-panel">
+        <img src="../static/img/logo.svg" alt="Logo" class="logo">
+        <h1>Landslide Automation Toolkit</h1>
+    </div>
+    <div class="container">
+        <form method="post" enctype="multipart/form-data" id="uploadForm">
+            <div>
+                <label for="global_tiff">Select or Upload Global raster TIFF:</label>
+                <select id="global_tiff" name="global_tiff" onchange="updateFilePath('global_tiff')">
+                    <option value="">Select file...</option>
+                    {% for file_name in global_tiff_files %}
+                        <option value="{{ file_name }}">{{ file_name }}</option>
+                    {% endfor %}
+                </select>
+                <input type="file" name="global_tiff_upload" onchange="updateFilePath('global_tiff')">
+            </div>
+            <div>
+                <label for="shp_admin">Select or Upload Shapefile with administrative boundaries:</label>
+                <select id="shp_admin" name="shp_admin" onchange="updateFilePath('shp_admin')">
+                    <option value="">Select file...</option>
+                    {% for file_name in shp_admin_files %}
+                        <option value="{{ file_name }}">{{ file_name }}</option>
+                    {% endfor %}
+                </select>
+                <input type="file" name="shp_admin_upload" onchange="updateFilePath('shp_admin')">
+            </div>
+            <div>
+                <label for="higher_res">Select or Upload Higher-resolution Population_Data TIFF (optional):</label>
+                <select id="higher_res" name="higher_res" onchange="updateFilePath('higher_res')">
+                    <option value="">Select file...</option>
+                    {% for file_name in higher_res_files %}
+                        <option value="{{ file_name }}">{{ file_name }}</option>
+                    {% endfor %}
+                </select>
+                <input type="file" name="higher_res_upload" onchange="updateFilePath('higher_res')">
+            </div>
+            <div>
+                <label for="analysisChoice">Perform Landslide Population Analysis?</label>
+                <select id="analysisChoice" name="analysisChoice">
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+            <input type="submit" value="Process">
+        </form>
+    </div>
+    <div class="bottom-panel">
+        &copy; 2024 Landslide Automation Toolkit. All rights reserved.
+    </div>
+
+    <script>
+        function updateFilePath(inputId) {
+            // Get the selected file from the dropdown
+            var selectedFile = document.getElementById(inputId).value;
+            // Reset the file upload input field
+            document.getElementById(inputId + '_upload').value = '';
+        }
+    </script>
 </body>
 </html>

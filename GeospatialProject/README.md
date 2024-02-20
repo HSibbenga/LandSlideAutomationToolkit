@@ -11,7 +11,7 @@ This project is designed to analyse geospatial data related to landslide risk an
 ### Prerequisites
 <!-- List of prerequisites like software, libraries, and tools with their versions -->
 - Python version 3.x
-- Required libraries: `rasterio`, `geopandas`, `numpy`, `pandas`,`GDAL`
+- Required libraries: `rasterio`, `geopandas`, `numpy`, `pandas`,`GDAL`, `Flask`
 - Landslide risk index global raster : preferable stored data/input
 - Shapefile with adm level boundaries : preferable stored data/input
 - Population raster dataset : preferable stored data/input
@@ -35,7 +35,12 @@ This project is designed to analyse geospatial data related to landslide risk an
 
 ## Usage
 <!-- Guide on how to use the project, including commands and example workflows -->
-To use this project, follow the on-screen (terminal) prompts after running the main script. Input paths for your raster and shapefile data, make decisions about upsampling, and choose whether to conduct Landslide Population Analysis. The process is designed to be user-friendly, guiding you through the analysis of geospatial data.
+- Enter the flask_app directory:
+
+- Run the Flask app:
+  - python app.py
+
+Open your web browser and go to http://localhost:5000 to view the app.
 
 ## Contributing
 <!-- Guidelines for contributors on how to help with the project -->
@@ -48,3 +53,5 @@ Contributions to this project are welcome! If you have improvements or code cont
 
 ## License
 <!-- Information about the project's license -->
+
+
