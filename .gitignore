@@ -6,6 +6,8 @@ __pycache__/
 # C extensions
 *.so
 
+test
+
 data
 global_tiff_files
 higher_res_files
